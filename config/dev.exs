@@ -3,8 +3,8 @@ import Config
 # Configure your database
 config :timemanager, TimeManager.Repo,
   username: "postgres",
-  password: "postgres",
-  database: "timemanager_dev",
+  password: "84FFCAE3",
+  database: "time01",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
