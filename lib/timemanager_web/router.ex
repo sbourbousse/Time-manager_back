@@ -14,8 +14,15 @@ defmodule TimeManagerWeb.Router do
     put "users/:id", UserController, :update
     delete "users/:id", UserController, :delete
 
-    resources "/clocks", ClockController
-    resources "/workingtimes", WorkingTimeController, except: [:new, :edit, :update, :delete, :index]
+    resources "/clocks", ClockController, except: [:new, :edit, :update, :delete, :index]
+
+    # resources "/workingtimes", WorkingTimeController
+
+    get "workingtimes/user/:userID", WorkingTimeController, :indexperiod
+    # get "workingtimes/:id", WorkingTimeController, :show
+    post "workingtimes", WorkingTimeController, :create
+    put "workingtimes/:id", WorkingTimeController, :update
+    delete "workingtimes/:id", WorkingTimeController, :delete
   end
 
   # Enables LiveDashboard only for development

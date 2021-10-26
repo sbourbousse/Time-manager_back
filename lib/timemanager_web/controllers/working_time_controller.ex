@@ -33,6 +33,11 @@ defmodule TimeManagerWeb.WorkingTimeController do
     end
   end
 
+  def indexperiod(conn, %{"userID" => userId, "start" => startDT, "end" => endDT}) do
+    workingtimes = Accounts.get_working_time_list_period(userId, startDT, endDT);
+    render(conn, "index.json", workingtimes: workingtimes)
+  end
+
   def delete(conn, %{"id" => id}) do
     working_time = Accounts.get_working_time!(id)
 

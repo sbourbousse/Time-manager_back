@@ -238,6 +238,11 @@ defmodule TimeManager.Accounts do
   """
   def get_working_time!(id), do: Repo.get!(WorkingTime, id)
 
+  def get_working_time_list_period(userId, startDT, endDT) do
+    WorkingTime
+    |> WorkingTime.getByUsernameAndEmail(userId, startDT, endDT)
+    |> Repo.all()
+  end
   @doc """
   Creates a working_time.
 
