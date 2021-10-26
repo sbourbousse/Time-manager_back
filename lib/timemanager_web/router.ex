@@ -10,7 +10,7 @@ defmodule TimeManagerWeb.Router do
 
     resources "/users", UserController
     resources "/clocks", ClockController
-    resources "/workingtimes", WorkingTimeController
+    resources "/workingtimes", WorkingTimeController, except: [:new, :edit, :update, :delete, :index]
   end
 
   # Enables LiveDashboard only for development
