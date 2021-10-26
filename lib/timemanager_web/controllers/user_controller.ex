@@ -25,6 +25,12 @@ defmodule TimeManagerWeb.UserController do
     render(conn, "show.json", user: user)
   end
 
+  def showbyemailandusername(conn, params) do
+    user = Accounts.get_user_by_email_and_username(params)
+    render(conn, "show.json", user: user)
+  end
+
+  @spec update(any, map) :: any
   def update(conn, %{"id" => id, "user" => user_params}) do
     user = Accounts.get_user!(id)
 

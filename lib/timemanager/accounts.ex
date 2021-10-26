@@ -37,6 +37,15 @@ defmodule TimeManager.Accounts do
   """
   def get_user!(id), do: Repo.get!(User, id)
 
+  def get_user_by_email_and_username(params) do
+    username = get_in(params, ["username"])
+    email = get_in(params, ["email"])
+
+    User
+    |> User.getByUsernameAndEmail(email, username)
+    |> Repo.one()
+  end
+
   @doc """
   Creates a user.
 
