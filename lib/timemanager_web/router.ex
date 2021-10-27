@@ -14,9 +14,11 @@ defmodule TimeManagerWeb.Router do
     put "users/:id", UserController, :update
     delete "users/:id", UserController, :delete
 
-    resources "/clocks", ClockController, except: [:new, :edit, :update, :delete, :index]
+    # resources "/clocks", ClockController, except: [:new, :edit, :update, :delete, :index]
+    get "clocks/user/:userID", ClockController, :indexclocks
+    post "clocks/:userID", ClockController, :create
+    get "clocks/:id", ClockController, :show
 
-    # resources "/workingtimes", WorkingTimeController
 
     get "workingtimes/user/:userID", WorkingTimeController, :indexperiod
     get "workingtimes/:id", WorkingTimeController, :show

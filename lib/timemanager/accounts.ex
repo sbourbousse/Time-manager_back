@@ -126,6 +126,12 @@ defmodule TimeManager.Accounts do
     Repo.all(Clock)
   end
 
+  def list_clocks_by_user(userId) do
+    Clock
+    |> Clock.getByUserId(userId)
+    |> Repo.all()
+  end
+
   @doc """
   Gets a single clock.
 
