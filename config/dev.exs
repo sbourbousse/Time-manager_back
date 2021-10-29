@@ -2,10 +2,10 @@ import Config
 
 # Configure your database
 config :timemanager, TimeManager.Repo,
-  username: "postgres",
-  password: "84FFCAE3",
-  database: "time01",
-  hostname: "localhost",
+  username: System.get_env("PGUSER"),
+  password: System.get_env("PGPASSWORD"),
+  database: System.get_env("PGDATABASE"),
+  hostname: System.get_env("PGHOST"),
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
@@ -18,7 +18,7 @@ config :timemanager, TimeManager.Repo,
 config :timemanager, TimeManagerWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
-  http: [ip: {127, 0, 0, 1}, port: 4000],
+  http: [port: 4000],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,

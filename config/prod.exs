@@ -16,6 +16,15 @@ config :timemanager, TimeManagerWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
+
+config :timemanager, TimeManager.Repo,
+  username: System.get_env("PGUSER"),
+  password: System.get_env("PGPASSWORD"),
+  database: System.get_env("PGDATABASE"),
+  hostname: System.get_env("PGHOST"),
+  port: System.get_env("PGPORT"),
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
